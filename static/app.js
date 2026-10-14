@@ -54,6 +54,9 @@ async function load() {
   const assurance = document.querySelector("#assurance");
   assurance.querySelector("small").textContent = audit.valid ? `${audit.events} EVENTS / VALID` : "VERIFICATION FAILED";
   if (audit.valid) assurance.classList.add("valid");
+  if (new URLSearchParams(window.location.search).get("connected") === "1") {
+    window.setTimeout(connect, 250);
+  }
 }
 
 document.querySelector("#connect").addEventListener("click", connect);
