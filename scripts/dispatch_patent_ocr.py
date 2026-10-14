@@ -73,6 +73,8 @@ def main() -> None:
     parser.add_argument("--remote-root", default="/Users/ryanbarrett/CascadeProjects/superadditivity-demo/jobs")
     parser.add_argument("--wait-hours", type=float, default=24.0)
     parser.add_argument("--poll-seconds", type=int, default=60)
+    parser.add_argument("--landscape", type=Path, default=PROJECT / "research" / "patent_landscape.json")
+    parser.add_argument("--report", type=Path, default=PROJECT / "research" / "PATENT_LANDSCAPE.md")
     args = parser.parse_args()
 
     bundle = args.bundle.resolve()
@@ -148,10 +150,10 @@ def main() -> None:
 
     subprocess.run([
         sys.executable, str(PROJECT / "scripts" / "apply_claim_ocr.py"), str(summary_path),
-        "--landscape", str(PROJECT / "research" / "patent_landscape.json"),
-        "--report", str(PROJECT / "research" / "PATENT_LANDSCAPE.md"),
+        "--landscape", str(args.landscape),
+        "--report", str(args.report),
     ], check=True)
-    audit.append(actor="deterministic-charting", action="patent.element_charts.updated", target="research/patent_landscape.json", outcome="success", details={"landscape_digest":sha256_file(PROJECT / "research" / "patent_landscape.json"),"report_digest":sha256_file(PROJECT / "research" / "PATENT_LANDSCAPE.md")}, session_id=session_id)
+    audit.append(actor="deterministic-charting", action="patent.element_charts.updated", target=str(args.landscape), outcome="success", details={"landscape_digest":sha256_file(args.landscape),"report_digest":sha256_file(args.report)}, session_id=session_id)
     print(json.dumps({"job_id":session_id,"summary":str(summary_path),"audit":audit.verify()}, indent=2))
 
 

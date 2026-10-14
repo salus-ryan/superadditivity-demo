@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-14T19:12:00Z",
+  "protocol": "research/WORKFLOW_BENCHMARK_PROTOCOL.md",
+  "job_id": "patent-ocr-6fe76320-d10d-43a3-b6e1-4855780d9e6a",
+  "manifest_sha256": "0ca414ed958d6fe8af9ca879d6ae6f0dde2c886072fb80a5169f152054f379c3",
+  "corpus": {
+    "documents": 5,
+    "source_bytes": 30468861,
+    "ocr_tail_pages_per_document": 25,
+    "workers": 3,
+    "cap_seconds": 600,
+    "accuracy_anchors": 20
+  },
+  "deliverables": {
+    "D1": "all source digests verified",
+    "D2": "all documents produced OCR text",
+    "D3": "all documents passed claim-region quality gates",
+    "D4": "deterministic seven-element chart produced",
+    "D5": "semantic seven-element claim-text triage produced",
+    "D6": "audit chain verified"
+  },
+  "modes": {
+    "android_only": {
+      "elapsed_seconds": 600.0,
+      "latency_censored": true,
+      "documents_completed": 0,
+      "documents_quality_passed": 0,
+      "claims_extracted": 0,
+      "anchor_matches": 0,
+      "anchor_total": 20,
+      "anchor_recall": 0.0,
+      "deliverables": {"D1": true, "D2": false, "D3": false, "D4": false, "D5": false, "D6": true},
+      "utility_points": 2,
+      "utility": 0.3333333333,
+      "audit_valid": true,
+      "audit_events": 4,
+      "failure": "600-second cap reached before any 25-page document completed"
+    },
+    "mac_only": {
+      "elapsed_seconds": 91.0,
+      "latency_resolution_seconds": 1.0,
+      "documents_completed": 5,
+      "documents_quality_passed": 5,
+      "claims_extracted": 91,
+      "independent_segments": 12,
+      "anchor_matches": 19,
+      "anchor_total": 20,
+      "anchor_recall": 0.95,
+      "deliverables": {"D1": true, "D2": true, "D3": true, "D4": true, "D5": false, "D6": true},
+      "utility_points": 5,
+      "utility": 0.8333333333,
+      "audit_valid": true,
+      "audit_events": 4,
+      "semantic_triage": false,
+      "semantic_triage_reason": "Controller credentials were not copied to the Mac under the deployed least-privilege policy."
+    },
+    "connected": {
+      "elapsed_seconds": 95.754,
+      "dispatch_ocr_chart_seconds": 95.254,
+      "semantic_triage_seconds": 0.5,
+      "coordination_seconds_vs_mac_only": 4.754,
+      "documents_completed": 5,
+      "documents_quality_passed": 5,
+      "claims_extracted": 91,
+      "independent_segments": 12,
+      "anchor_matches": 19,
+      "anchor_total": 20,
+      "anchor_recall": 0.95,
+      "deliverables": {"D1": true, "D2": true, "D3": true, "D4": true, "D5": true, "D6": true},
+      "utility_points": 6,
+      "utility": 1.0,
+      "audit_valid": true,
+      "audit_events": 8
+    }
+  },
+  "decision_rule": {
+    "minimum_relative_utility_lift": 0.15,
+    "minimum_connected_anchor_recall": 0.9,
+    "maximum_connected_seconds": 600
+  },
+  "post_run_assessment": {
+    "model": "typesafe/jev-1.13-20260917",
+    "bounded_operational_advantage_probability": 0.77,
+    "scientific_superadditivity_probability": 0.09,
+    "recommended_next_gate": "customer_gate",
+    "recommended_next_gate_probability": 0.99
+  },
+  "outcome": {
+    "best_solo_mode": "mac_only",
+    "best_solo_utility": 0.8333333333,
+    "connected_utility": 1.0,
+    "relative_utility_lift": 0.2,
+    "connected_anchor_recall": 0.95,
+    "connected_under_latency_cap": true,
+    "threshold_passed": true,
+    "scientific_superadditivity_established": false,
+    "interpretation": "The connected workflow passed the pre-registered operational threshold under the deployed credential-separation policy. The gain is attributable to complementary resource and trust placement and does not establish a novel scientific method or an intrinsic cross-device effect."
+  }
+}

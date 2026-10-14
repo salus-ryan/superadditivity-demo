@@ -54,3 +54,13 @@ The claim-oriented patent-search tooling and preliminary landscape are in:
 - [`research/DISTRIBUTED_PATENT_SEARCH.md`](research/DISTRIBUTED_PATENT_SEARCH.md)
 
 The tool expands queries, applies a priority-date cutoff, deduplicates publications and proxy families, retrieves USPTO documents, scores seven claim elements, emits preliminary element charts, caches source evidence, and fails closed behind a circuit breaker when a source rate-limits requests. A content-addressed worker bundle can dispatch image-only USPTO documents to macOS Apple Vision OCR and merge verified claims back into the charts. It remains a discovery aid rather than a legal opinion.
+
+## Bounded workflow benchmark
+
+The pre-registered Android-only, Mac-only, and connected comparison is documented in:
+
+- [`research/WORKFLOW_BENCHMARK_PROTOCOL.md`](research/WORKFLOW_BENCHMARK_PROTOCOL.md)
+- [`research/WORKFLOW_BENCHMARK_RESULTS.md`](research/WORKFLOW_BENCHMARK_RESULTS.md)
+- [`research/workflow_benchmark_results.json`](research/workflow_benchmark_results.json)
+
+The connected workflow passed the operational threshold under the deployed credential-separation policy. This is a bounded workflow result, not proof of scientific superadditivity or broad technical novelty.
