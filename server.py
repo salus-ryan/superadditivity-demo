@@ -19,6 +19,8 @@ DATA = ROOT / "data" / "demo-run.json"
 LOGGER = AuditLogger(ROOT / "logs")
 RUN = json.loads(DATA.read_text(encoding="utf-8"))
 SESSION_ID = RUN["run_id"]
+HOST = "127.0.0.1"
+PORT = 8787
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -76,11 +78,11 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 def main() -> None:
-    server = ThreadingHTTPServer(("127.0.0.1", 8765), Handler)
+    server = ThreadingHTTPServer((HOST, PORT), Handler)
     LOGGER.append(
         actor="demo-server",
         action="server.started",
-        target="127.0.0.1:8765",
+        target=f"{HOST}:{PORT}",
         outcome="success",
         details={"network_scope": "loopback-only"},
         session_id=SESSION_ID,
@@ -97,7 +99,7 @@ def main() -> None:
         LOGGER.append(
             actor="demo-server",
             action="server.stopped",
-            target="127.0.0.1:8765",
+            target=f"{HOST}:{PORT}",
             outcome="success",
             details={"reason": "signal-or-exit"},
             session_id=SESSION_ID,

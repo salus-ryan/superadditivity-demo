@@ -22,7 +22,7 @@ python3 -m unittest discover -s tests -v
 python3 server.py
 ```
 
-Open <http://127.0.0.1:8765> and choose **Connect Silos**.
+Open <http://127.0.0.1:8787> and choose **Connect Silos**.
 
 ## Audit verification
 
