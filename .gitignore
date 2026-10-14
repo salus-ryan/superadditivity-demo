@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+logs/
+data/demo-run.json
+.demo-server.pid
+.demo-server.log
+.DS_Store

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Silo Swarm — Connected Judgment Demo</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">SUPERADDITIVITY LAB / SEALED RUN</p>
+        <h1>SILO <span>SWARM</span></h1>
+        <p class="lede">Four isolated evidence cells. Sixteen parallel Jev judgments. One executable response.</p>
+      </div>
+      <div class="assurance" id="assurance">
+        <span class="pulse"></span>
+        <div><strong>AUDIT CHAIN</strong><small>VERIFYING</small></div>
+      </div>
+    </header>
+
+    <section class="telemetry" aria-label="Run telemetry">
+      <div><small>MODEL</small><strong id="model">—</strong></div>
+      <div><small>PARALLEL JUDGMENTS</small><strong id="judgment-count">—</strong></div>
+      <div><small>RUN</small><strong id="run-id">—</strong></div>
+      <div><small>RAW PROMPTS LOGGED</small><strong class="safe">NO</strong></div>
+    </section>
+
+    <section class="stage disconnected" id="stage">
+      <svg class="links" viewBox="0 0 1000 720" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M250 190 C420 190 420 360 500 360"/>
+        <path d="M750 190 C580 190 580 360 500 360"/>
+        <path d="M250 530 C420 530 420 360 500 360"/>
+        <path d="M750 530 C580 530 580 360 500 360"/>
+      </svg>
+      <div id="silos" class="silos"></div>
+      <div class="core" id="core">
+        <div class="core-ring"></div>
+        <small>NETWORK STATE</small>
+        <strong id="network-state">ISOLATED</strong>
+        <button id="connect" type="button">CONNECT SILOS</button>
+      </div>
+    </section>
+
+    <section class="result-panel hidden" id="result-panel">
+      <div class="verdict">
+        <p class="eyebrow">CONNECTED VERIFICATION</p>
+        <h2 id="root-cause">—</h2>
+        <div class="confidence"><span id="confidence-bar"></span></div>
+        <p id="response">—</p>
+      </div>
+      <div class="utility">
+        <p class="eyebrow">THRESHOLD UTILITY</p>
+        <div class="equation"><span>Σ isolated</span><b>0</b><i>→</i><span>connected</span><b>1</b></div>
+        <p id="utility-note"></p>
+      </div>
+      <div class="audit-card">
+        <p class="eyebrow">CONTROL EVIDENCE</p>
+        <ul>
+          <li><span>HMAC chain</span><b>ACTIVE</b></li>
+          <li><span>Loopback bind</span><b>127.0.0.1</b></li>
+          <li><span>Data minimization</span><b>ENFORCED</b></li>
+          <li><span>Claim boundary</span><b>NOT CERTIFICATION</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <span>Typed judgments guide the workflow. Deterministic code owns policy, composition, and audit.</span>
+      <button id="replay" type="button">REPLAY SEALED RUN</button>
+    </footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
