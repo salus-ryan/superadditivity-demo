@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-14T18:36:00Z",
+  "model": "typesafe/jev-1.13-20260917",
+  "source_job_id": "patent-ocr-6a477753-d490-4467-999e-971aa46abccd",
+  "scope": "Technical-disclosure triage over all machine-extracted claim text; not legal claim construction, anticipation analysis, a patentability opinion, or freedom-to-operate advice.",
+  "elements": {
+    "E1": "Partitioned multi-agent evidence",
+    "E2": "Parallel typed probabilistic judgments",
+    "E3": "Connected verification or aggregation stage",
+    "E4": "Deterministic policy composition",
+    "E5": "Coalitional utility or contribution measurement",
+    "E6": "Isolated-versus-connected visualization",
+    "E7": "Data-minimized tamper-evident audit evidence"
+  },
+  "results": [
+    {
+      "publication_number": "US12526244B2",
+      "probabilities": {"E1": 0.94, "E2": 0.07, "E3": 0.93, "E4": 0.81, "E5": 0.03, "E6": 0.03, "E7": 0.35}
+    },
+    {
+      "publication_number": "US12596813B2",
+      "probabilities": {"E1": 0.96, "E2": 0.06, "E3": 0.97, "E4": 0.82, "E5": 0.02, "E6": 0.03, "E7": 0.29}
+    },
+    {
+      "publication_number": "US20220210200A1",
+      "probabilities": {"E1": 0.07, "E2": 0.05, "E3": 0.09, "E4": 0.19, "E5": 0.02, "E6": 0.03, "E7": 0.02}
+    },
+    {
+      "publication_number": "US20250259042A1",
+      "probabilities": {"E1": 0.92, "E2": 0.04, "E3": 0.85, "E4": 0.12, "E5": 0.03, "E6": 0.03, "E7": 0.03}
+    },
+    {
+      "publication_number": "US20250328560A1",
+      "probabilities": {"E1": 0.58, "E2": 0.06, "E3": 0.10, "E4": 0.79, "E5": 0.02, "E6": 0.03, "E7": 0.91}
+    }
+  ]
+}

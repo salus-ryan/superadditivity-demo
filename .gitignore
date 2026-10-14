@@ -5,3 +5,5 @@ data/demo-run.json
 .demo-server.pid
 .demo-server.log
 .DS_Store
+research/.patent-cache/
+jobs/

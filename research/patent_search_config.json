@@ -1,0 +1,73 @@
+{
+  "name": "Silo Swarm claim-oriented patent discovery",
+  "cutoff_priority_date": "2026-10-14",
+  "jurisdictions": ["US", "WO", "EP", "CN"],
+  "claim_elements": [
+    {
+      "id": "E1",
+      "name": "Partitioned multi-agent evidence",
+      "description": "A plurality of AI agents or processing nodes receives different evidence, context, or role-specific inputs.",
+      "terms": ["multi-agent", "multiple agents", "plurality of agents", "plurality of ai agents", "distributed agents", "specialist agents", "role-specific", "partitioned evidence", "different evidence"]
+    },
+    {
+      "id": "E2",
+      "name": "Parallel typed probabilistic judgments",
+      "description": "Agents evaluate concurrently and return constrained or structured judgments with confidence or probability information.",
+      "terms": ["parallel", "concurrent", "simultaneous", "typed output", "structured output", "structured response", "probability", "probabilistic", "confidence score", "confidence value"]
+    },
+    {
+      "id": "E3",
+      "name": "Connected verification or aggregation stage",
+      "description": "A later stage receives, aggregates, verifies, or reaches consensus over the earlier outputs or pooled evidence.",
+      "terms": ["aggregate outputs", "aggregation", "aggregator", "pooled evidence", "combine outputs", "combined outputs", "verification stage", "second stage", "consensus", "evidence fusion", "ensemble"]
+    },
+    {
+      "id": "E4",
+      "name": "Deterministic policy composition",
+      "description": "Non-model rules or a policy engine compose judgments into an action, approval, block, or incident response.",
+      "terms": ["deterministic policy", "policy engine", "rule engine", "rules engine", "policy-based", "approve or block", "approval or blocking", "permission validation", "action selection", "remediation action", "incident response"]
+    },
+    {
+      "id": "E5",
+      "name": "Coalitional utility or contribution measurement",
+      "description": "The system computes utility, superadditive surplus, marginal contribution, Shapley allocation, or coalition value.",
+      "terms": ["superadditive", "super-additive", "coalition value", "coalitional utility", "utility function", "shapley", "marginal contribution", "contribution score", "surplus"]
+    },
+    {
+      "id": "E6",
+      "name": "Isolated-versus-connected visualization",
+      "description": "A dashboard or interface visualizes agents, evidence partitions, execution graphs, or isolated and connected states.",
+      "terms": ["dashboard", "graphical user interface", "visualization", "visualize", "execution graph", "agent graph", "isolated state", "connected state", "network view"]
+    },
+    {
+      "id": "E7",
+      "name": "Data-minimized tamper-evident audit evidence",
+      "description": "Agent actions or decisions are recorded in append-only, signed, hash-linked, HMAC-protected, or otherwise tamper-evident records.",
+      "terms": ["tamper-evident", "tamper evident", "hash chain", "hash-chained", "hash linked", "hmac", "append-only log", "append only log", "signed audit", "cryptographic audit", "audit trail", "audit log"]
+    }
+  ],
+  "queries": [
+    "\"multi-agent\" \"incident response\" \"audit log\"",
+    "\"multi-agent\" dashboard \"tamper-evident\"",
+    "\"language model\" parallel agents aggregation decision",
+    "\"large language model\" structured output confidence aggregation",
+    "\"AI agent\" deterministic \"policy engine\"",
+    "\"AI agent\" \"hash chain\" audit",
+    "\"AI agent\" HMAC \"audit log\"",
+    "\"multi-agent\" evidence fusion verification",
+    "\"multi-agent\" dashboard decision support",
+    "\"multi-agent\" Shapley contribution",
+    "\"language model\" superadditive agents",
+    "\"autonomous agent\" observation control audit",
+    "\"generative AI\" permission validation approve block",
+    "\"incident response\" agent dashboard remediation",
+    "\"parallel\" \"language model\" decision aggregation"
+  ],
+  "seed_publications": [
+    "US20250328560A1",
+    "US12526244B2",
+    "US12596813B2",
+    "US20220210200A1",
+    "US20250259042A1"
+  ]
+}

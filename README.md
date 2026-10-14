@@ -34,3 +34,23 @@ PY
 ```
 
 Runtime artifacts under `logs/` and `data/demo-run.json` are excluded from version control. The sealed run shown in the demo was produced through the controller's Jev integration; the Mac receives results, not API credentials.
+
+## Prior-art review
+
+The systematic discovery protocol, reproducible metadata, and conclusions are in:
+
+- [`research/PRIOR_ART_PROTOCOL.md`](research/PRIOR_ART_PROTOCOL.md)
+- [`research/PRIOR_ART_REPORT.md`](research/PRIOR_ART_REPORT.md)
+- [`research/prior_art_results.json`](research/prior_art_results.json)
+
+The responsible current label is **distinctive integration demo**, not novel scientific method or novel technical architecture.
+
+The claim-oriented patent-search tooling and preliminary landscape are in:
+
+- [`scripts/patent_landscape.py`](scripts/patent_landscape.py)
+- [`research/patent_search_config.json`](research/patent_search_config.json)
+- [`research/PATENT_LANDSCAPE.md`](research/PATENT_LANDSCAPE.md)
+- [`research/patent_landscape.json`](research/patent_landscape.json)
+- [`research/DISTRIBUTED_PATENT_SEARCH.md`](research/DISTRIBUTED_PATENT_SEARCH.md)
+
+The tool expands queries, applies a priority-date cutoff, deduplicates publications and proxy families, retrieves USPTO documents, scores seven claim elements, emits preliminary element charts, caches source evidence, and fails closed behind a circuit breaker when a source rate-limits requests. A content-addressed worker bundle can dispatch image-only USPTO documents to macOS Apple Vision OCR and merge verified claims back into the charts. It remains a discovery aid rather than a legal opinion.
