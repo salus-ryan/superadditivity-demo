@@ -64,3 +64,16 @@ The pre-registered Android-only, Mac-only, and connected comparison is documente
 - [`research/workflow_benchmark_results.json`](research/workflow_benchmark_results.json)
 
 The connected workflow passed the operational threshold under the deployed credential-separation policy. This is a bounded workflow result, not proof of scientific superadditivity or broad technical novelty.
+
+## Sample client deliverable
+
+Build the local, client-style demonstration packet with:
+
+```bash
+python3 -m pip install -r requirements-deliverable.txt
+python3 scripts/build_sample_deliverable.py
+```
+
+The build also requires Poppler's `pdftoppm` command.
+
+The generated packet and ZIP archive are written under `deliverables/`, which is excluded from version control because it contains source patent PDFs. The packet includes a preliminary evidence memorandum, editable claim chart, reference profiles, review queue, source pages, provenance manifest, and verifier. It uses a fictional claim and remains demonstration work product—not legal advice or a patent opinion.
