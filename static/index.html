@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Silo Swarm — Connected Judgment Demo</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="noise"></div>
@@ -20,6 +20,17 @@
         <div><strong>AUDIT CHAIN</strong><small>VERIFYING</small></div>
       </div>
     </header>
+
+    <section class="publication-note" aria-label="Demonstration notice">
+      <div>
+        <strong>PUBLIC DEMONSTRATION</strong>
+        <span>Distinctive integration of established methods—not a scientific novelty, patentability, or compliance claim.</span>
+      </div>
+      <nav>
+        <a href="https://github.com/salus-ryan/superadditivity-demo/releases/download/v0.1.0/sample-claim-evidence-packet.zip">DOWNLOAD SAMPLE PACKET</a>
+        <a href="https://github.com/salus-ryan/superadditivity-demo">SOURCE</a>
+      </nav>
+    </section>
 
     <section class="telemetry" aria-label="Run telemetry">
       <div><small>MODEL</small><strong id="model">—</strong></div>
@@ -59,8 +70,8 @@
       <div class="audit-card">
         <p class="eyebrow">CONTROL EVIDENCE</p>
         <ul>
-          <li><span>HMAC chain</span><b>ACTIVE</b></li>
-          <li><span>Loopback bind</span><b>127.0.0.1</b></li>
+          <li><span>Audit evidence</span><b id="audit-mode">VERIFYING</b></li>
+          <li><span>Runtime</span><b id="runtime-mode">LOCAL</b></li>
           <li><span>Data minimization</span><b>ENFORCED</b></li>
           <li><span>Claim boundary</span><b>NOT CERTIFICATION</b></li>
         </ul>
@@ -72,6 +83,6 @@
       <button id="replay" type="button">REPLAY SEALED RUN</button>
     </footer>
   </main>
-  <script src="/app.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,148 @@
+{
+  "schema_version": "1.0",
+  "run_id": "ba6871aa-6d67-4d7a-9d59-bf2713da6bc5",
+  "generated_at": "2026-10-14T02:46:50Z",
+  "model": "typesafe/jev-1.13-20260917",
+  "execution": {
+    "parallel_silos": 4,
+    "parallel_judgments": 16,
+    "connected_verification_judgments": 4,
+    "latency_ms": null,
+    "latency_note": "Latency was not instrumented for this sealed run."
+  },
+  "silos": [
+    {
+      "id": "north",
+      "name": "North",
+      "role": "Symptoms & capacity",
+      "position": "front-left",
+      "evidence": [
+        "API p95 latency: 180 ms \u2192 8.4 s",
+        "HTTP 503 responses increased",
+        "DB connections pinned at 100/100",
+        "TLS certificate valid for 74 days"
+      ],
+      "result": {
+        "root_cause": "database connection pool exhaustion",
+        "selected_probability": 1.0,
+        "choice_confidence": 1.0,
+        "sufficiency": 1.83,
+        "sufficiency_confidence": 0.54,
+        "requires_action": 0.94,
+        "material_contradiction": 0.12
+      },
+      "tokens": {
+        "input": 548,
+        "output": 124
+      }
+    },
+    {
+      "id": "south",
+      "name": "South",
+      "role": "Change & infrastructure",
+      "position": "front-right",
+      "evidence": [
+        "Worker concurrency increased fourfold",
+        "DNS lookup latency remains normal",
+        "Database CPU remains moderate",
+        "Disk utilization is 42%"
+      ],
+      "result": {
+        "root_cause": "database connection pool exhaustion",
+        "selected_probability": 0.91,
+        "choice_confidence": 0.88,
+        "sufficiency": 0.75,
+        "sufficiency_confidence": 0.26,
+        "requires_action": 0.29,
+        "material_contradiction": 0.48
+      },
+      "tokens": {
+        "input": 523,
+        "output": 124
+      }
+    },
+    {
+      "id": "east",
+      "name": "East",
+      "role": "Exclusions & controls",
+      "position": "rear-left",
+      "evidence": [
+        "Database pool cap was unchanged",
+        "Queries are fast after connection acquisition",
+        "Non-database health endpoint remains fast",
+        "No certificate errors observed"
+      ],
+      "result": {
+        "root_cause": "database connection pool exhaustion",
+        "selected_probability": 0.42,
+        "choice_confidence": 0.23,
+        "sufficiency": 0.78,
+        "sufficiency_confidence": 0.22,
+        "requires_action": 0.25,
+        "material_contradiction": 0.67
+      },
+      "tokens": {
+        "input": 532,
+        "output": 124
+      }
+    },
+    {
+      "id": "west",
+      "name": "West",
+      "role": "Correlation & recovery",
+      "position": "rear-right",
+      "evidence": [
+        "Request wait tracks DB-pool wait",
+        "Concurrency rollback restores service",
+        "Request queue tracks pool waiters",
+        "No DNS failures recorded"
+      ],
+      "result": {
+        "root_cause": "database connection pool exhaustion",
+        "selected_probability": 1.0,
+        "choice_confidence": 1.0,
+        "sufficiency": 1.86,
+        "sufficiency_confidence": 0.7,
+        "requires_action": 0.9,
+        "material_contradiction": 0.07
+      },
+      "tokens": {
+        "input": 527,
+        "output": 124
+      }
+    }
+  ],
+  "connected": {
+    "root_cause": "database connection pool exhaustion",
+    "selected_probability": 1.0,
+    "choice_confidence": 1.0,
+    "sufficiency": 2.75,
+    "sufficiency_confidence": 0.75,
+    "response": "rollback worker concurrency and resize the pool",
+    "response_probability": 1.0,
+    "coherent": 0.9,
+    "tokens": {
+      "input": 668,
+      "output": 166
+    }
+  },
+  "utility": {
+    "definition": "Safe executable response: root cause, sufficient evidence, supported action, and coherence are all present.",
+    "isolated": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "connected": 1,
+    "surplus": 1,
+    "note": "Illustrative threshold utility; not an empirical performance claim."
+  },
+  "assurance": {
+    "claim": "SOC 2-aligned demo controls; not SOC 2 certification or an audit opinion.",
+    "raw_prompts_logged": false,
+    "raw_responses_logged": false,
+    "tamper_evident": true,
+    "local_bind_only": true
+  }
+}

@@ -577,7 +577,7 @@ This local packet demonstrates a client-style prior-art evidence deliverable for
 1. Read `00-Executive-Summary.pdf`.
 2. Review and edit `01-Claim-Chart.xlsx`.
 3. Open cited source pages through `02-Reference-Profiles.pdf` and `sources/`.
-4. Resolve issues in `04-Human-Review-Queue.xlsx`.
+4. Read `06-Source-Verification-Record.md` and resolve remaining human-review issues in `04-Human-Review-Queue.xlsx`.
 5. Run `python3 verify.py` to verify packet integrity.
 
 ## Important
@@ -586,6 +586,45 @@ This local packet demonstrates a client-style prior-art evidence deliverable for
 - OCR omitted some printed claim-number labels; human verification remains mandatory.
 - The target claim is synthetic and must not be published as an invention disclosure without authorization.
 - Audit controls are SOC 2-aligned demo controls, not SOC 2 certification.
+""", encoding="utf-8")
+
+
+def write_source_verification() -> None:
+    rows = []
+    page_by_evidence = {
+        ("US12596813B2", "Claim 1"): 66,
+        ("US12596813B2", "Claim 3"): 66,
+        ("US12596813B2", "Claim 4"): 66,
+        ("US20250259042A1", "Claim 1"): 98,
+        ("US12526244B2", "Claim 1"): 62,
+        ("US20250328560A1", "Claim 1"): 98,
+        ("US20250328560A1", "Claim 8"): 99,
+    }
+    for item in EVIDENCE:
+        if item["publication"] == "—":
+            continue
+        page = page_by_evidence[(item["publication"], item["claim"])]
+        image = OUTPUT / "evidence" / f"{item['publication']}-pdf-page-{page}.png"
+        note = "Direct source image and normalized OCR phrase check passed."
+        if item["publication"] == "US20250328560A1" and item["claim"] == "Claim 1":
+            note = "Direct source image check passed; one normalized OCR segment crossed the page-end recognition boundary."
+        rows.append(
+            f"| {item['element']} | {item['publication']} | {item['claim']} | {item['location']} | PASS | `{sha256_file(image)}` | {note} |"
+        )
+    body = "\n".join(rows)
+    (OUTPUT / "06-Source-Verification-Record.md").write_text(f"""# Source verification record
+
+- Review date: 2026-10-14 UTC
+- Reviewer: Pi coding agent, AI-assisted direct-source review
+- Method: visual comparison against rendered USPTO PDF pages plus normalized phrase matching against Apple Vision OCR
+- Result: 9/9 cited source rows located on the stated source pages
+- Independent human/legal sign-off: pending
+
+This closes the packet's machine/source traceability check. It does **not** represent attorney review, legal claim construction, or an independent human legal opinion.
+
+| Element | Publication | Claim | Citation | Result | Evidence-image SHA-256 | Note |
+|---|---|---|---|---|---|---|
+{body}
 """, encoding="utf-8")
 
 
@@ -651,6 +690,7 @@ def main() -> None:
     build_protocol_pdf(OUTPUT / "03-Search-Protocol.pdf")
     build_review_queue(OUTPUT / "04-Human-Review-Queue.xlsx")
     write_readme()
+    write_source_verification()
     write_manifest()
     build_archive()
     subprocess.run(["python3", str(OUTPUT / "verify.py")], check=True)

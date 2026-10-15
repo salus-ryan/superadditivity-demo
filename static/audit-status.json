@@ -1,0 +1,7 @@
+{
+  "valid": true,
+  "events": 5,
+  "mode": "static-snapshot",
+  "source": "sealed local HMAC-chain verification",
+  "note": "This deployment contains a verified static export, not a live audit service."
+}

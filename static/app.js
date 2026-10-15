@@ -34,14 +34,20 @@ function connect() {
   }, 600);
 }
 
+async function fetchJson(primary, fallback) {
+  const primaryResponse = await fetch(primary, {cache: "no-store"});
+  if (primaryResponse.ok) return primaryResponse.json();
+  const fallbackResponse = await fetch(fallback, {cache: "no-store"});
+  if (!fallbackResponse.ok) throw new Error(`unavailable: ${fallback}`);
+  return fallbackResponse.json();
+}
+
 async function load() {
-  const [runResponse, auditResponse] = await Promise.all([
-    fetch("/api/run", {cache: "no-store"}),
-    fetch("/api/audit-status", {cache: "no-store"}),
+  const [runPayload, audit] = await Promise.all([
+    fetchJson("api/run", "demo-run.json"),
+    fetchJson("api/audit-status", "audit-status.json"),
   ]);
-  if (!runResponse.ok) throw new Error("sealed run unavailable");
-  run = await runResponse.json();
-  const audit = await auditResponse.json();
+  run = runPayload;
 
   document.querySelector("#model").textContent = run.model;
   document.querySelector("#judgment-count").textContent = run.execution.parallel_judgments;
@@ -52,7 +58,12 @@ async function load() {
   document.querySelector("#utility-note").textContent = run.utility.note;
 
   const assurance = document.querySelector("#assurance");
-  assurance.querySelector("small").textContent = audit.valid ? `${audit.events} EVENTS / VALID` : "VERIFICATION FAILED";
+  const staticSnapshot = audit.mode === "static-snapshot";
+  assurance.querySelector("small").textContent = audit.valid
+    ? `${audit.events} EVENTS / ${staticSnapshot ? "VERIFIED SNAPSHOT" : "VALID"}`
+    : "VERIFICATION FAILED";
+  document.querySelector("#audit-mode").textContent = staticSnapshot ? "VERIFIED SNAPSHOT" : "HMAC ACTIVE";
+  document.querySelector("#runtime-mode").textContent = staticSnapshot ? "STATIC EXPORT" : "LOOPBACK";
   if (audit.valid) assurance.classList.add("valid");
   if (new URLSearchParams(window.location.search).get("connected") === "1") {
     window.setTimeout(connect, 250);

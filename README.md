@@ -1,6 +1,9 @@
 # Silo Swarm
 
-A local visual demonstration of complementary typed judgments becoming an executable incident-response decision.
+A visual demonstration of complementary typed judgments becoming an executable incident-response decision.
+
+- Live demonstration: <https://salus-ryan.github.io/superadditivity-demo/>
+- Sample evidence packet: <https://github.com/salus-ryan/superadditivity-demo/releases/tag/v0.1.0>
 
 - Four evidence silos
 - Four Jev judgments per silo, dispatched in parallel (16 total)
